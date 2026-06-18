@@ -4169,6 +4169,709 @@
             }
         }
 
+    
+        /* ================= CHALLENGE CARDS SIZE + HOVER ================= */
+
+        .cards {
+            overflow: visible;
+        }
+
+        .challenge-img,
+        .challenge-card {
+            width: 390px;
+            min-width: 390px;
+            max-width: 390px;
+            transform: translateY(0) scale(1);
+            transform-origin: center;
+            transition:
+                transform 0.28s ease,
+                box-shadow 0.28s ease,
+                filter 0.28s ease;
+            will-change: transform;
+        }
+
+        .challenge-img {
+            cursor: pointer;
+        }
+
+        .challenge-card {
+            min-height: 0;
+            margin: 0;
+            padding: 22px 22px;
+            gap: 18px;
+            cursor: pointer;
+        }
+
+        .challenge-img:hover,
+        .challenge-card:hover {
+            z-index: 20;
+            transform: translateY(-8px) scale(1.06);
+            filter: drop-shadow(0 18px 28px rgba(87, 45, 126, 0.18));
+        }
+
+        .challenge-card:hover {
+            box-shadow: 0 18px 34px rgba(87, 45, 126, 0.2);
+        }
+
+        .challenge-icon-wrap {
+            width: 86px;
+            height: 86px;
+            min-width: 86px;
+        }
+
+        .challenge-icon {
+            width: 62px;
+            height: 62px;
+        }
+
+        .challenge-card-title {
+            margin-bottom: 10px;
+            font-size: 25px;
+            line-height: 1.08;
+        }
+
+        .challenge-card-meta {
+            margin-bottom: 10px;
+            font-size: 15px;
+            line-height: 1.32;
+        }
+
+        .challenge-card-meta b,
+        .challenge-star {
+            font-size: 18px;
+        }
+
+        .challenge-card-desc {
+            max-width: none;
+            font-size: 14px;
+            line-height: 1.32;
+        }
+
+        @media (max-width: 980px) {
+            .challenge-img,
+            .challenge-card {
+                width: min(100%, 390px);
+                min-width: 0;
+                max-width: 390px;
+            }
+
+            .challenge-card {
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .challenge-img:hover,
+            .challenge-card:hover {
+                transform: translateY(-5px) scale(1.025);
+            }
+
+            .challenge-card {
+                width: 100%;
+                max-width: 390px;
+                padding: 22px 18px;
+                gap: 16px;
+            }
+
+            .challenge-icon-wrap {
+                width: 78px;
+                height: 78px;
+                min-width: 78px;
+            }
+
+            .challenge-icon {
+                width: 56px;
+                height: 56px;
+            }
+
+            .challenge-card-title {
+                font-size: 23px;
+            }
+
+            .challenge-card-meta,
+            .challenge-card-desc {
+                font-size: 14px;
+            }
+
+            .challenge-card-meta b,
+            .challenge-star {
+                font-size: 17px;
+            }
+        }
+
+        @media (hover: none) {
+            .challenge-img:hover,
+            .challenge-card:hover {
+                transform: none;
+                filter: none;
+                box-shadow: 0 12px 28px rgba(87, 45, 126, 0.11);
+            }
+        }
+
+    
+        /* ================= CHALLENGE MIDDLE CARD EXACT VISUAL WIDTH FIX ================= */
+        /*
+           У PNG-карточек challenge-1/challenge-3 есть прозрачные поля внутри самой картинки,
+           поэтому HTML-карточка при той же CSS-ширине визуально кажется шире.
+           Делаем среднюю карточку уже по видимой ширине.
+        */
+
+        .challenge-card {
+            width: 340px;
+            min-width: 340px;
+            max-width: 340px;
+            padding: 20px 18px;
+            gap: 14px;
+        }
+
+        .challenge-card-content {
+            min-width: 0;
+        }
+
+        .challenge-icon-wrap {
+            width: 72px;
+            height: 72px;
+            min-width: 72px;
+        }
+
+        .challenge-icon {
+            width: 52px;
+            height: 52px;
+        }
+
+        .challenge-card-title {
+            margin-bottom: 8px;
+            font-size: 22px;
+            line-height: 1.05;
+        }
+
+        .challenge-card-meta {
+            margin-bottom: 8px;
+            font-size: 13px;
+            line-height: 1.28;
+        }
+
+        .challenge-card-meta b,
+        .challenge-star {
+            font-size: 16px;
+        }
+
+        .challenge-card-desc {
+            font-size: 12.5px;
+            line-height: 1.28;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-8px) scale(1.055);
+        }
+
+        @media (max-width: 980px) {
+            .challenge-card {
+                width: min(100%, 340px);
+                min-width: 0;
+                max-width: 340px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .challenge-card {
+                width: min(100%, 340px);
+                max-width: 340px;
+                padding: 20px 17px;
+            }
+
+            .challenge-card-title {
+                font-size: 21px;
+            }
+
+            .challenge-card-meta,
+            .challenge-card-desc {
+                font-size: 12.5px;
+            }
+
+            .challenge-card-meta b,
+            .challenge-star {
+                font-size: 15px;
+            }
+        }
+
+    
+        /* ================= FINAL CHALLENGE BLOCK BALANCE ================= */
+        /*
+           1) Возвращаем средней карточке такой же размер, как у двух PNG-карточек.
+           2) Сдвигаем весь второй блок ниже равномерно: фон + контент вместе.
+        */
+
+        .section2 {
+            margin-top: -35px;
+            padding-top: 210px;
+        }
+
+        .section-bg-img {
+            top: 0;
+            height: 100%;
+            transform: none;
+        }
+
+        .section-container {
+            transform: translateY(-120px);
+        }
+
+        .challenge-img,
+        .challenge-card {
+            width: 390px;
+            min-width: 390px;
+            max-width: 390px;
+        }
+
+        .challenge-card {
+            height: 160px;
+            min-height: 160px;
+            margin: 0;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            border-radius: 24px;
+        }
+
+        .challenge-icon-wrap {
+            width: 76px;
+            height: 76px;
+            min-width: 76px;
+        }
+
+        .challenge-icon {
+            width: 54px;
+            height: 54px;
+        }
+
+        .challenge-card-title {
+            margin-bottom: 8px;
+            font-size: 23px;
+            line-height: 1.06;
+        }
+
+        .challenge-card-meta {
+            margin-bottom: 8px;
+            font-size: 13.5px;
+            line-height: 1.25;
+        }
+
+        .challenge-card-meta b,
+        .challenge-star {
+            font-size: 17px;
+        }
+
+        .challenge-card-desc {
+            max-width: 250px;
+            font-size: 12.5px;
+            line-height: 1.25;
+        }
+
+        .challenge-img,
+        .challenge-card {
+            transition:
+                transform 0.28s ease,
+                box-shadow 0.28s ease,
+                filter 0.28s ease;
+            will-change: transform;
+        }
+
+        .challenge-img:hover,
+        .challenge-card:hover {
+            z-index: 20;
+            transform: translateY(-8px) scale(1.045);
+            filter: drop-shadow(0 18px 28px rgba(87, 45, 126, 0.18));
+        }
+
+        .challenge-card:hover {
+            box-shadow: 0 18px 34px rgba(87, 45, 126, 0.2);
+        }
+
+        @media (max-width: 1180px) {
+            .section2 {
+                margin-top: -28px;
+                padding-top: 178px;
+            }
+
+            .section-container {
+                transform: translateY(-82px);
+            }
+        }
+
+        @media (max-width: 980px) {
+            .section2 {
+                margin-top: -24px;
+                padding-top: 116px;
+            }
+
+            .section-container {
+                transform: none;
+            }
+
+            .challenge-img,
+            .challenge-card {
+                width: min(100%, 390px);
+                min-width: 0;
+                max-width: 390px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section2 {
+                margin-top: -18px;
+                padding-top: 96px;
+            }
+
+            .challenge-card {
+                width: min(100%, 390px);
+                max-width: 390px;
+                height: auto;
+                min-height: 160px;
+                padding: 20px 18px;
+                gap: 16px;
+            }
+
+            .challenge-card-title {
+                font-size: 22px;
+            }
+
+            .challenge-card-meta,
+            .challenge-card-desc {
+                font-size: 12.5px;
+            }
+
+            .challenge-card-meta b,
+            .challenge-star {
+                font-size: 16px;
+            }
+
+            .challenge-img:hover,
+            .challenge-card:hover {
+                transform: translateY(-5px) scale(1.025);
+            }
+        }
+
+        @media (hover: none) {
+            .challenge-img:hover,
+            .challenge-card:hover {
+                transform: none;
+                filter: none;
+            }
+
+            .challenge-card:hover {
+                box-shadow: 0 12px 28px rgba(87, 45, 126, 0.11);
+            }
+        }
+
+    
+        /* ================= SECOND BLOCK LOWER — STRONG FIX ================= */
+        /*
+           Опускаем второй блок заметно ниже целиком:
+           фон, текст слева и карточки справа двигаются вместе.
+        */
+
+        .section2 {
+            margin-top: 70px !important;
+            padding-top: 210px !important;
+        }
+
+        .section-bg-img {
+            top: 0 !important;
+            height: 100% !important;
+            transform: none !important;
+        }
+
+        .section-container {
+            transform: translateY(-80px) !important;
+        }
+
+        @media (max-width: 1180px) {
+            .section2 {
+                margin-top: 58px !important;
+                padding-top: 180px !important;
+            }
+
+            .section-container {
+                transform: translateY(-55px) !important;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .section2 {
+                margin-top: 46px !important;
+                padding-top: 130px !important;
+            }
+
+            .section-container {
+                transform: none !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section2 {
+                margin-top: 34px !important;
+                padding-top: 112px !important;
+            }
+        }
+
+    
+        /* ================= SECOND BLOCK HIGHER — BALANCED FIX ================= */
+        /*
+           Предыдущий вариант был слишком низко.
+           Поднимаем второй блок обратно выше, но оставляем его ниже, чем было изначально.
+           Фон и содержимое двигаются вместе.
+        */
+
+        .section2 {
+            margin-top: 25px !important;
+            padding-top: 210px !important;
+        }
+
+        .section-bg-img {
+            top: 0 !important;
+            height: 100% !important;
+            transform: none !important;
+        }
+
+        .section-container {
+            transform: translateY(-105px) !important;
+        }
+
+        @media (max-width: 1180px) {
+            .section2 {
+                margin-top: 18px !important;
+                padding-top: 180px !important;
+            }
+
+            .section-container {
+                transform: translateY(-75px) !important;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .section2 {
+                margin-top: 12px !important;
+                padding-top: 126px !important;
+            }
+
+            .section-container {
+                transform: none !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section2 {
+                margin-top: 8px !important;
+                padding-top: 104px !important;
+            }
+        }
+
+    
+        /* ================= SECOND BLOCK SLIGHTLY HIGHER ================= */
+        /*
+           Ещё немного поднимаем второй блок вверх.
+           Фон и всё содержимое остаются синхронно в одном положении.
+        */
+
+        .section2 {
+            margin-top: 8px !important;
+            padding-top: 210px !important;
+        }
+
+        .section-bg-img {
+            top: 0 !important;
+            height: 100% !important;
+            transform: none !important;
+        }
+
+        .section-container {
+            transform: translateY(-118px) !important;
+        }
+
+        @media (max-width: 1180px) {
+            .section2 {
+                margin-top: 6px !important;
+                padding-top: 180px !important;
+            }
+
+            .section-container {
+                transform: translateY(-86px) !important;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .section2 {
+                margin-top: 4px !important;
+                padding-top: 120px !important;
+            }
+
+            .section-container {
+                transform: none !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section2 {
+                margin-top: 0 !important;
+                padding-top: 98px !important;
+            }
+        }
+
+    
+        /* ================= SECOND BLOCK A LITTLE MORE HIGHER ================= */
+        /*
+           Ещё чуть поднимаем второй блок вверх.
+           Фон и содержимое остаются синхронно.
+        */
+
+        .section2 {
+            margin-top: -8px !important;
+            padding-top: 210px !important;
+        }
+
+        .section-bg-img {
+            top: 0 !important;
+            height: 100% !important;
+            transform: none !important;
+        }
+
+        .section-container {
+            transform: translateY(-128px) !important;
+        }
+
+        @media (max-width: 1180px) {
+            .section2 {
+                margin-top: -6px !important;
+                padding-top: 180px !important;
+            }
+
+            .section-container {
+                transform: translateY(-94px) !important;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .section2 {
+                margin-top: -4px !important;
+                padding-top: 116px !important;
+            }
+
+            .section-container {
+                transform: none !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section2 {
+                margin-top: -6px !important;
+                padding-top: 94px !important;
+            }
+        }
+
+    
+        /* ================= SECOND BLOCK TINY STEP HIGHER ================= */
+        /*
+           Ещё чуть-чуть поднимаем второй блок вверх.
+           Фон и содержимое двигаются вместе.
+        */
+
+        .section2 {
+            margin-top: -18px !important;
+            padding-top: 210px !important;
+        }
+
+        .section-bg-img {
+            top: 0 !important;
+            height: 100% !important;
+            transform: none !important;
+        }
+
+        .section-container {
+            transform: translateY(-136px) !important;
+        }
+
+        @media (max-width: 1180px) {
+            .section2 {
+                margin-top: -14px !important;
+                padding-top: 180px !important;
+            }
+
+            .section-container {
+                transform: translateY(-102px) !important;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .section2 {
+                margin-top: -10px !important;
+                padding-top: 112px !important;
+            }
+
+            .section-container {
+                transform: none !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section2 {
+                margin-top: -10px !important;
+                padding-top: 90px !important;
+            }
+        }
+
+    
+        /* ================= SECOND BLOCK FINAL TINY HIGHER ================= */
+        /*
+           Поднимаем второй блок ещё совсем немного.
+           Фон и всё содержимое двигаются вместе.
+        */
+
+        .section2 {
+            margin-top: -26px !important;
+            padding-top: 210px !important;
+        }
+
+        .section-bg-img {
+            top: 0 !important;
+            height: 100% !important;
+            transform: none !important;
+        }
+
+        .section-container {
+            transform: translateY(-142px) !important;
+        }
+
+        @media (max-width: 1180px) {
+            .section2 {
+                margin-top: -20px !important;
+                padding-top: 180px !important;
+            }
+
+            .section-container {
+                transform: translateY(-108px) !important;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .section2 {
+                margin-top: -14px !important;
+                padding-top: 108px !important;
+            }
+
+            .section-container {
+                transform: none !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section2 {
+                margin-top: -14px !important;
+                padding-top: 86px !important;
+            }
+        }
+
     </style>
 </head>
 
