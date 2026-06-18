@@ -1,0 +1,2882 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EOS — Просыпайся с удовольствием</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        :root {
+            --purple: #a855f7;
+            --purple-hover: #9333ea;
+            --purple-light: #f9f3ff;
+            --purple-soft: #eadbff;
+            --text-dark: #444444;
+            --text-gray: #555555;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            background: var(--purple);
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo-circle {
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--white);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .nav-menu a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .nav-menu a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-download {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 999px;
+            background: var(--white);
+            color: var(--purple);
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* ================= BUTTONS ================= */
+
+        .btn-white {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 999px;
+            background: var(--white);
+            color: var(--purple);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero-bg {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            background-image: url('./images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            margin-left: 320px;
+            padding-top: 100px;
+        }
+
+        .hero-title {
+            font-size: clamp(44px, 4.3vw, 68px);
+            line-height: 1.05;
+            font-weight: 600;
+            letter-spacing: -2px;
+            color: #f9f3ff;
+        }
+
+        .hero-title-offset {
+            padding-left: 360px;
+        }
+
+        .vmeste-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 2rem;
+        }
+
+        .title-vmeste {
+            font-size: clamp(44px, 4.3vw, 68px);
+            font-weight: 600;
+            color: #f9f3ff;
+        }
+
+        .eos-image {
+            width: clamp(240px, 28vw, 420px);
+            height: auto;
+            margin-left: 120px;
+        }
+
+        .hero-description {
+            max-width: 580px;
+            margin-top: 2rem;
+            font-size: 22px;
+            line-height: 1.6;
+            color: #f3e8ff;
+        }
+
+        /* ================= SECTION 2 ================= */
+
+        .section2 {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            margin-top: -95px;
+            padding: 200px 0 120px;
+            overflow: visible;
+            border-radius: 48px 48px 0 0;
+        }
+
+        .section-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 48px 48px 0 0;
+        }
+
+        .section-container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 70px;
+            max-width: none;
+            margin-left: 280px;
+            overflow: visible;
+            transform: translateY(-200px);
+        }
+
+        .left {
+            width: 520px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+            font-size: 48px;
+            font-weight: 600;
+            color: #3a3a3a;
+        }
+
+        .section-desc {
+            margin-bottom: 34px;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #5a5a5a;
+        }
+
+        .benefits-img {
+            display: block;
+            width: 100%;
+        }
+
+        /* ================= CHALLENGE CARDS ================= */
+
+        .cards {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 820px;
+            min-width: 820px;
+            flex-shrink: 0;
+            overflow: visible;
+            transform: translateY(100px);
+        }
+
+        .challenge-img {
+            display: block;
+            height: auto;
+            max-width: none;
+            flex-shrink: 0;
+            border-radius: 24px;
+        }
+
+        .challenge-small {
+            width: 390px;
+            min-width: 390px;
+        }
+
+        .challenge-card {
+            position: relative;
+            z-index: 10;
+            width: 720px;
+            min-width: 720px;
+            min-height: 230px;
+            margin: 22px 0;
+            padding: 28px 36px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-shrink: 0;
+            border-radius: 30px;
+            background: #f8f4ff;
+            box-shadow: 0 12px 28px rgba(87, 45, 126, 0.11);
+        }
+
+        .challenge-icon-wrap {
+            width: 116px;
+            height: 116px;
+            min-width: 116px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #eadbff;
+        }
+
+        .challenge-icon {
+            width: 84px;
+            height: 84px;
+        }
+
+        .challenge-card-content {
+            flex: 1;
+        }
+
+        .challenge-card-title {
+            margin-bottom: 14px;
+            font-size: 34px;
+            line-height: 1.05;
+            font-weight: 800;
+            color: #3d3d3d;
+        }
+
+        .challenge-card-meta {
+            margin-bottom: 14px;
+            font-size: 19px;
+            line-height: 1.4;
+            font-weight: 500;
+            color: #555555;
+        }
+
+        .challenge-card-meta b {
+            font-size: 24px;
+            font-weight: 900;
+            color: #3d3d3d;
+        }
+
+        .challenge-star {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--purple);
+        }
+
+        .challenge-card-desc {
+            max-width: 470px;
+            font-size: 18px;
+            line-height: 1.34;
+            font-weight: 500;
+            color: #666666;
+        }
+
+        /* ================= SUPPORT SECTION ================= */
+
+        .support-section {
+            position: relative;
+            z-index: 3;
+            padding: 95px 0 70px;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .support-container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 90px;
+        }
+
+        .support-text {
+            width: 520px;
+            flex-shrink: 0;
+        }
+
+        .support-title {
+            margin-bottom: 24px;
+            font-size: 52px;
+            line-height: 1.14;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            color: #424242;
+        }
+
+        .support-desc {
+            max-width: 500px;
+            font-size: 20px;
+            line-height: 1.35;
+            font-weight: 400;
+            color: #4f4f4f;
+        }
+
+        .support-image-wrap {
+            width: 520px;
+            flex-shrink: 0;
+        }
+
+        .support-chat-img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .eos-line {
+            width: 100%;
+            margin-top: 75px;
+            overflow: hidden;
+        }
+
+        .eos-line img {
+            display: block;
+            width: 100%;
+            min-width: 1600px;
+            height: auto;
+        }
+
+        /* ================= PROGRESS SECTION ================= */
+
+        .progress-section {
+            position: relative;
+            z-index: 4;
+            padding: 40px 0 0;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .progress-block {
+            position: relative;
+            width: 100%;
+            min-height: 890px;
+            overflow: hidden;
+        }
+
+        .progress-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .progress-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 95px 40px 90px;
+        }
+
+        .progress-title {
+            margin-bottom: 72px;
+            text-align: center;
+            font-size: 58px;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            color: var(--text-dark);
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: start;
+            justify-items: center;
+            gap: 48px 90px;
+        }
+
+        .progress-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .progress-item.productivity {
+            width: 500px;
+        }
+
+        .progress-item.mood {
+            width: 500px;
+        }
+
+        .progress-item.sleep {
+            width: 600px;
+        }
+
+        .progress-item.goals {
+            width: 460px;
+            align-self: start;
+        }
+
+        /* ================= REVIEWS SECTION ================= */
+
+        .reviews-section {
+            position: relative;
+            z-index: 5;
+            padding: 65px 0 110px;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .reviews-container {
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .reviews-title {
+            margin-bottom: 42px;
+            text-align: center;
+            font-size: 56px;
+            line-height: 1.08;
+            font-weight: 700;
+            letter-spacing: -1.3px;
+            color: var(--text-dark);
+        }
+
+        .reviews-carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        .review-arrow {
+            width: 58px;
+            height: 58px;
+            padding: 0;
+            flex-shrink: 0;
+            border: none;
+            background: transparent;
+        }
+
+        .review-arrow img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .reviews-cards {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .review-card {
+            position: relative;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .review-card-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+
+        .review-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .review-card-small {
+            width: 255px;
+            min-height: 250px;
+            padding: 24px 24px 22px;
+        }
+
+        .review-card-big {
+            width: 385px;
+            min-height: 310px;
+            padding: 32px 32px 30px;
+        }
+
+        .review-head {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .review-avatar {
+            width: 70px;
+            height: 70px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .review-info {
+            padding-top: 7px;
+        }
+
+        .review-name {
+            margin-bottom: 6px;
+            font-size: 17px;
+            line-height: 1.1;
+            font-weight: 500;
+            color: #5a5a5a;
+        }
+
+        .review-stars {
+            display: block;
+            width: 112px;
+            height: auto;
+        }
+
+        .review-ivan-head {
+            display: block;
+            width: 310px;
+            height: auto;
+            margin-bottom: 18px;
+        }
+
+        .review-text {
+            font-weight: 400;
+            color: #505050;
+        }
+
+        .review-card-small .review-text {
+            max-width: 202px;
+            font-size: 15px;
+            line-height: 1.24;
+        }
+
+        .review-card-big .review-text {
+            max-width: 315px;
+            font-size: 20px;
+            line-height: 1.22;
+        }
+
+        .reviews-slider {
+            display: flex;
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .reviews-slider-inner {
+            position: relative;
+            width: 150px;
+            height: 16px;
+        }
+
+        .review-slider-line {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            display: block;
+            width: 150px;
+            height: auto;
+            transform: translateY(-50%);
+        }
+
+        .review-slider-thumb {
+            position: absolute;
+            left: 73px;
+            top: 50%;
+            display: block;
+            width: 38px;
+            height: auto;
+            transform: translateY(-50%);
+        }
+
+        /* ================= QUESTIONS SECTION ================= */
+
+        .questions-section {
+            position: relative;
+            z-index: 6;
+            padding: 0;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .questions-block {
+            position: relative;
+            width: 100%;
+            max-width: none;
+            min-height: 820px;
+            margin: 0;
+            overflow: hidden;
+            border-radius: 64px;
+            background: transparent;
+        }
+
+        .questions-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            border-radius: 64px;
+        }
+
+        .questions-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 95px 40px 90px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .questions-left {
+            width: 520px;
+            flex-shrink: 0;
+        }
+
+        .questions-title {
+            margin-bottom: 16px;
+            font-size: 60px;
+            line-height: 1.05;
+            font-weight: 700;
+            letter-spacing: -1.4px;
+            color: var(--text-dark);
+        }
+
+        .questions-desc {
+            max-width: 460px;
+            margin-bottom: 24px;
+            font-size: 20px;
+            line-height: 1.25;
+            font-weight: 400;
+            color: var(--text-gray);
+        }
+
+        .questions-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .questions-input,
+        .questions-textarea {
+            width: 100%;
+            border: none;
+            outline: none;
+            border-radius: 22px;
+            background: var(--purple-light);
+            color: var(--text-dark);
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .questions-input {
+            height: 61px;
+            padding: 0 28px;
+        }
+
+        .questions-textarea {
+            height: 122px;
+            padding: 20px 28px;
+            resize: none;
+        }
+
+        .questions-input::placeholder,
+        .questions-textarea::placeholder {
+            color: #6f6f6f;
+            opacity: 1;
+        }
+
+        .questions-input:focus,
+        .questions-textarea:focus {
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18);
+        }
+
+        .questions-checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 4px;
+            font-size: 17px;
+            line-height: 1.2;
+            color: var(--text-dark);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .questions-checkbox-label input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .custom-checkbox {
+            position: relative;
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+            border: 3px solid #4c4c4c;
+            border-radius: 4px;
+            background: transparent;
+        }
+
+        .questions-checkbox-label input:checked + .custom-checkbox::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 1px;
+            width: 7px;
+            height: 13px;
+            border: solid var(--purple);
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+
+        .questions-checkbox-text {
+            color: var(--text-dark);
+        }
+
+        .questions-checkbox-text span {
+            text-decoration: underline;
+        }
+
+        .questions-submit {
+            width: 260px;
+            height: 58px;
+            margin-top: 4px;
+            border: none;
+            border-radius: 999px;
+            background: var(--purple);
+            color: var(--white);
+            font-size: 20px;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+
+        .questions-submit:hover {
+            background: var(--purple-hover);
+        }
+
+        .questions-right {
+            width: 470px;
+            flex-shrink: 0;
+            padding-top: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .questions-sun-img {
+            display: block;
+            width: 100%;
+            max-width: 430px;
+            height: auto;
+        }
+
+        /* ================= FOOTER SECTION ================= */
+
+        .footer-section {
+            position: relative;
+            z-index: 7;
+            margin-top: -210px;
+            padding: 0;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .footer-block {
+            position: relative;
+            width: 100%;
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .footer-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 74px 40px 46px;
+            color: var(--white);
+        }
+
+        .footer-title {
+            margin-bottom: 18px;
+            font-size: 48px;
+            line-height: 1.08;
+            font-weight: 700;
+            letter-spacing: -1.2px;
+            color: var(--white);
+        }
+
+        .footer-desc {
+            max-width: 1050px;
+            margin-bottom: 42px;
+            font-size: 20px;
+            line-height: 1.35;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 230px 280px 1fr;
+            align-items: start;
+            gap: 70px;
+        }
+
+        .footer-nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 52px;
+        }
+
+        .footer-nav a,
+        .footer-link {
+            font-size: 20px;
+            line-height: 1.2;
+            font-weight: 600;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .footer-nav a:hover,
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-social-title,
+        .footer-download-title {
+            margin-bottom: 18px;
+            font-size: 26px;
+            line-height: 1.15;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .footer-socials-img {
+            display: block;
+            width: 170px;
+            height: auto;
+            margin-bottom: 18px;
+        }
+
+        .footer-email {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            line-height: 1.2;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .footer-email-icon {
+            position: relative;
+            width: 24px;
+            height: 18px;
+            flex-shrink: 0;
+            border: 3px solid var(--white);
+            border-radius: 3px;
+        }
+
+        .footer-email-icon::before,
+        .footer-email-icon::after {
+            content: "";
+            position: absolute;
+            top: 6px;
+            width: 13px;
+            height: 3px;
+            background: var(--white);
+        }
+
+        .footer-email-icon::before {
+            left: 1px;
+            transform: rotate(35deg);
+        }
+
+        .footer-email-icon::after {
+            right: 1px;
+            transform: rotate(-35deg);
+        }
+
+        .footer-store-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .footer-store-img {
+            display: block;
+            width: 150px;
+            height: auto;
+        }
+
+        .footer-web {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 18px;
+            line-height: 1.2;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .footer-web a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .footer-copy {
+            margin-top: 42px;
+            font-size: 18px;
+            line-height: 1.2;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        /* ================= ADAPTIVE ================= */
+
+        @media (max-width: 1200px) {
+            .hero-content {
+                margin-left: 120px;
+            }
+
+            .section-container {
+                margin-left: 80px;
+            }
+
+            .support-container {
+                gap: 50px;
+            }
+
+            .support-title {
+                font-size: 44px;
+            }
+
+            .support-image-wrap {
+                width: 460px;
+            }
+
+            .progress-title {
+                font-size: 48px;
+            }
+
+            .progress-grid {
+                gap: 40px;
+            }
+
+            .progress-item.productivity,
+            .progress-item.mood {
+                width: 430px;
+            }
+
+            .progress-item.sleep {
+                width: 520px;
+            }
+
+            .progress-item.goals {
+                width: 400px;
+            }
+
+            .reviews-container {
+                max-width: 1040px;
+            }
+
+            .reviews-title {
+                font-size: 48px;
+            }
+
+            .reviews-carousel {
+                gap: 18px;
+            }
+
+            .review-card-small {
+                width: 235px;
+            }
+
+            .review-card-big {
+                width: 350px;
+            }
+
+            .review-ivan-head {
+                width: 285px;
+            }
+
+            .review-card-big .review-text {
+                font-size: 18px;
+            }
+
+            .questions-title {
+                font-size: 50px;
+            }
+
+            .questions-right {
+                width: 390px;
+            }
+
+            .questions-sun-img {
+                max-width: 360px;
+            }
+
+            .footer-title {
+                font-size: 42px;
+            }
+
+            .footer-main {
+                grid-template-columns: 220px 250px 1fr;
+                gap: 40px;
+            }
+
+            .footer-store-img {
+                width: 135px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                height: auto;
+                min-height: 80px;
+                padding: 16px 0;
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+                padding: 0 24px;
+            }
+
+            .nav-menu {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 16px 22px;
+                font-size: 15px;
+            }
+
+            .hero-content {
+                margin-left: 0;
+                padding: 150px 24px 80px;
+            }
+
+            .hero-title-offset {
+                padding-left: 0;
+            }
+
+            .eos-image {
+                margin-left: 0;
+            }
+
+            .section-container,
+            .support-container {
+                flex-direction: column;
+                margin-left: 0;
+                padding: 0 24px;
+            }
+
+            .section-container {
+                transform: translateY(-120px);
+            }
+
+            .left,
+            .support-text,
+            .support-image-wrap {
+                width: 100%;
+            }
+
+            .cards {
+                width: 100%;
+                min-width: 0;
+                transform: none;
+            }
+
+            .challenge-small {
+                width: 100%;
+                min-width: 0;
+                max-width: 390px;
+            }
+
+            .challenge-card {
+                width: 100%;
+                min-width: 0;
+                max-width: 720px;
+                align-items: flex-start;
+            }
+
+            .support-title {
+                font-size: 38px;
+            }
+
+            .progress-block {
+                min-height: auto;
+            }
+
+            .progress-bg {
+                display: none;
+            }
+
+            .progress-content {
+                max-width: 100%;
+                padding: 30px 20px;
+                border-radius: 40px;
+                background: #ead8ff;
+            }
+
+            .progress-title {
+                margin-bottom: 34px;
+                font-size: 36px;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .progress-item.productivity,
+            .progress-item.mood,
+            .progress-item.sleep,
+            .progress-item.goals {
+                width: 100%;
+                max-width: 520px;
+            }
+
+            .reviews-section {
+                padding: 55px 0 80px;
+            }
+
+            .reviews-container {
+                padding: 0 22px;
+            }
+
+            .reviews-title {
+                margin-bottom: 30px;
+                font-size: 36px;
+            }
+
+            .reviews-carousel {
+                gap: 0;
+            }
+
+            .review-arrow {
+                display: none;
+            }
+
+            .reviews-cards {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .review-card-small,
+            .review-card-big {
+                width: 100%;
+                max-width: 390px;
+            }
+
+            .review-ivan-head {
+                width: 100%;
+                max-width: 310px;
+            }
+
+            .questions-block {
+                width: 100%;
+                max-width: none;
+                min-height: auto;
+                border-radius: 40px;
+                background: #ead8ff;
+            }
+
+            .questions-bg {
+                display: none;
+            }
+
+            .questions-content {
+                flex-direction: column;
+                max-width: 100%;
+                margin: 0;
+                padding: 28px 20px 32px;
+                border-radius: 0;
+                background: transparent;
+            }
+
+            .questions-left,
+            .questions-right {
+                width: 100%;
+            }
+
+            .questions-title {
+                font-size: 40px;
+            }
+
+            .questions-desc {
+                max-width: 100%;
+                font-size: 18px;
+            }
+
+            .questions-submit {
+                width: 230px;
+            }
+
+            .questions-right {
+                justify-content: center;
+                padding-top: 10px;
+            }
+
+            .questions-sun-img {
+                max-width: 300px;
+            }
+
+            .footer-section {
+                margin-top: -200px;
+            }
+
+            .footer-block {
+                min-height: auto;
+                border-radius: 40px 40px 0 0;
+                background: var(--purple);
+            }
+
+            .footer-bg {
+                display: none;
+            }
+
+            .footer-content {
+                padding: 44px 24px 38px;
+            }
+
+            .footer-title {
+                font-size: 36px;
+            }
+
+            .footer-desc {
+                margin-bottom: 30px;
+                font-size: 17px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-nav {
+                max-width: 320px;
+            }
+
+            .footer-store-row {
+                flex-wrap: wrap;
+            }
+
+            .footer-copy {
+                margin-top: 36px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-download {
+                padding: 9px 16px;
+                font-size: 14px;
+            }
+
+            .hero-title,
+            .title-vmeste {
+                font-size: 42px;
+                letter-spacing: -1px;
+            }
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .challenge-card {
+                flex-direction: column;
+                padding: 26px 24px;
+            }
+
+            .challenge-card-title {
+                font-size: 28px;
+            }
+
+            .challenge-card-meta,
+            .challenge-card-desc {
+                font-size: 17px;
+            }
+
+            .footer-nav {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .footer-web {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+
+
+        /* ================= MAX RESPONSIVE FIXES ================= */
+
+        html,
+        body {
+            width: 100%;
+            max-width: 100%;
+            min-width: 320px;
+            overflow-x: hidden;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        section,
+        header,
+        footer,
+        nav {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        img,
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a,
+        button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        #challenges,
+        #community,
+        #statistics,
+        #reviews,
+        #contacts {
+            scroll-margin-top: 120px;
+        }
+
+        @media (max-width: 1280px) {
+            .nav-container {
+                max-width: 1120px;
+                padding: 0 32px;
+            }
+
+            .hero-content {
+                max-width: 980px;
+                margin-left: clamp(56px, 10vw, 180px);
+                padding-right: 40px;
+            }
+
+            .hero-title-offset {
+                padding-left: clamp(160px, 24vw, 310px);
+            }
+
+            .eos-image {
+                margin-left: clamp(20px, 7vw, 90px);
+            }
+
+            .section-container {
+                width: 100%;
+                max-width: 1120px;
+                margin: 0 auto;
+                padding: 0 32px;
+                gap: 44px;
+            }
+
+            .left {
+                width: min(46%, 500px);
+            }
+
+            .cards {
+                width: min(54%, 720px);
+                min-width: 0;
+            }
+
+            .challenge-card {
+                width: 100%;
+                min-width: 0;
+                max-width: 680px;
+            }
+
+            .support-container,
+            .progress-content,
+            .questions-content,
+            .footer-content {
+                max-width: 1120px;
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+
+            .progress-grid {
+                gap: 42px 56px;
+            }
+
+            .progress-item.productivity,
+            .progress-item.mood {
+                width: min(100%, 460px);
+            }
+
+            .progress-item.sleep {
+                width: min(100%, 540px);
+            }
+
+            .progress-item.goals {
+                width: min(100%, 430px);
+            }
+
+            .reviews-container {
+                max-width: 1060px;
+                padding-left: 28px;
+                padding-right: 28px;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .nav-menu {
+                gap: 20px;
+                font-size: 15px;
+            }
+
+            .hero-content {
+                margin-left: clamp(36px, 7vw, 90px);
+                padding-top: 116px;
+            }
+
+            .hero-title-offset {
+                padding-left: clamp(70px, 17vw, 190px);
+            }
+
+            .section2 {
+                margin-top: -150px;
+                padding: 170px 0 90px;
+            }
+
+            .section-container {
+                transform: translateY(-150px);
+            }
+
+            .section-title {
+                font-size: 42px;
+            }
+
+            .challenge-card {
+                padding: 24px 28px;
+                gap: 24px;
+            }
+
+            .challenge-card-title {
+                font-size: 30px;
+            }
+
+            .challenge-icon-wrap {
+                width: 104px;
+                height: 104px;
+                min-width: 104px;
+            }
+
+            .challenge-icon {
+                width: 76px;
+                height: 76px;
+            }
+
+            .support-container {
+                gap: 42px;
+            }
+
+            .support-text,
+            .support-image-wrap {
+                width: min(50%, 500px);
+            }
+
+            .questions-left {
+                width: min(50%, 520px);
+            }
+
+            .questions-right {
+                width: min(42%, 430px);
+            }
+
+            .reviews-carousel {
+                gap: 12px;
+            }
+
+            .review-arrow {
+                width: 46px;
+                height: 46px;
+            }
+
+            .review-card-small {
+                width: 230px;
+            }
+
+            .review-card-big {
+                width: 330px;
+            }
+
+            .review-card-big .review-text {
+                font-size: 17px;
+            }
+
+            .footer-main {
+                grid-template-columns: 210px 240px 1fr;
+                gap: 34px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-bg {
+                min-height: auto;
+            }
+
+            .hero-content {
+                margin-left: 0;
+                padding: 136px 32px 116px;
+            }
+
+            .hero-title-offset {
+                padding-left: clamp(40px, 15vw, 150px);
+            }
+
+            .section2 {
+                margin-top: -64px;
+                padding: 132px 0 72px;
+            }
+
+            .section-container {
+                max-width: 760px;
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+                padding: 0 32px;
+                transform: translateY(-82px);
+            }
+
+            .left {
+                width: 100%;
+            }
+
+            .benefits-img {
+                max-width: 560px;
+            }
+
+            .cards {
+                width: 100%;
+                min-width: 0;
+                transform: none;
+            }
+
+            .challenge-small {
+                width: min(100%, 390px);
+                min-width: 0;
+            }
+
+            .challenge-card {
+                width: 100%;
+                max-width: 680px;
+                min-width: 0;
+            }
+
+            .support-section {
+                padding: 70px 0 54px;
+            }
+
+            .support-container {
+                max-width: 760px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 36px;
+            }
+
+            .support-text,
+            .support-image-wrap {
+                width: 100%;
+            }
+
+            .support-image-wrap {
+                max-width: 560px;
+                align-self: center;
+            }
+
+            .support-title br {
+                display: none;
+            }
+
+            .eos-line {
+                margin-top: 52px;
+            }
+
+            .eos-line img {
+                min-width: 1100px;
+            }
+
+            .progress-section {
+                padding-top: 24px;
+            }
+
+            .progress-block {
+                min-height: auto;
+            }
+
+            .progress-content {
+                padding: 56px 32px 64px;
+            }
+
+            .progress-title {
+                margin-bottom: 44px;
+                font-size: 44px;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 28px;
+            }
+
+            .progress-item.productivity,
+            .progress-item.mood,
+            .progress-item.sleep,
+            .progress-item.goals {
+                width: 100%;
+                max-width: 430px;
+            }
+
+            .reviews-section {
+                padding: 54px 0 86px;
+            }
+
+            .reviews-title {
+                font-size: 44px;
+            }
+
+            .reviews-carousel {
+                gap: 0;
+            }
+
+            .review-arrow {
+                display: none;
+            }
+
+            .reviews-cards {
+                flex-wrap: wrap;
+                align-items: stretch;
+                gap: 18px;
+            }
+
+            .review-card-small,
+            .review-card-big {
+                width: min(100%, 360px);
+            }
+
+            .questions-block {
+                min-height: auto;
+                border-radius: 48px;
+                background: #ead8ff;
+            }
+
+            .questions-bg {
+                display: none;
+            }
+
+            .questions-content {
+                max-width: 760px;
+                flex-direction: column;
+                gap: 34px;
+                padding: 56px 32px 64px;
+            }
+
+            .questions-left,
+            .questions-right {
+                width: 100%;
+            }
+
+            .questions-desc {
+                max-width: 620px;
+            }
+
+            .questions-right {
+                padding-top: 0;
+            }
+
+            .questions-sun-img {
+                max-width: 340px;
+            }
+
+            .footer-section {
+                margin-top: -200px;
+            }
+
+            .footer-block {
+                min-height: auto;
+                border-radius: 48px 48px 0 0;
+                background: var(--purple);
+            }
+
+            .footer-bg {
+                display: none;
+            }
+
+            .footer-content {
+                max-width: 760px;
+                padding: 64px 32px 42px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 34px 42px;
+            }
+
+            .footer-download {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                min-height: 76px;
+                height: auto;
+                padding: 12px 0;
+            }
+
+            .nav-container {
+                padding: 0 20px;
+                gap: 12px;
+            }
+
+            .logo-circle {
+                width: 38px;
+                height: 38px;
+            }
+
+            .nav-download {
+                padding: 9px 17px;
+                font-size: 14px;
+            }
+
+            .nav-menu {
+                width: 100%;
+                order: 3;
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                gap: 18px;
+                overflow-x: auto;
+                padding: 2px 0 4px;
+                font-size: 14px;
+                scrollbar-width: none;
+            }
+
+            .nav-menu::-webkit-scrollbar {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 138px 22px 92px;
+            }
+
+            .hero-title,
+            .title-vmeste {
+                font-size: clamp(36px, 11vw, 54px);
+                line-height: 1.02;
+                letter-spacing: -1.2px;
+            }
+
+            .hero-title-offset {
+                padding-left: 0;
+            }
+
+            .vmeste-container {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 18px;
+                margin-top: 22px;
+            }
+
+            .eos-image {
+                width: min(72vw, 280px);
+                margin-left: 0;
+            }
+
+            .hero-description {
+                max-width: 520px;
+                margin-top: 26px;
+                font-size: 18px;
+                line-height: 1.5;
+            }
+
+            .btn-white {
+                width: min(100%, 260px);
+                margin-top: 30px;
+                padding: 15px 28px;
+            }
+
+            .section2 {
+                margin-top: -42px;
+                padding: 74px 0 54px;
+                border-radius: 32px 32px 0 0;
+                overflow: hidden;
+            }
+
+            .section-bg-img {
+                border-radius: 32px 32px 0 0;
+            }
+
+            .section-container {
+                max-width: 620px;
+                padding: 0 22px;
+                gap: 30px;
+                transform: none;
+            }
+
+            .section-title {
+                font-size: clamp(32px, 8vw, 40px);
+                line-height: 1.12;
+                letter-spacing: -0.7px;
+            }
+
+            .section-desc {
+                margin-bottom: 26px;
+                font-size: 17px;
+                line-height: 1.5;
+            }
+
+            .cards {
+                gap: 18px;
+            }
+
+            .challenge-card {
+                max-width: 100%;
+                padding: 24px;
+                border-radius: 26px;
+            }
+
+            .challenge-card-title {
+                font-size: 28px;
+            }
+
+            .challenge-card-meta,
+            .challenge-card-desc {
+                font-size: 17px;
+            }
+
+            .challenge-card-meta b,
+            .challenge-star {
+                font-size: 22px;
+            }
+
+            .support-section {
+                padding: 56px 0 42px;
+            }
+
+            .support-container {
+                padding: 0 22px;
+                gap: 28px;
+            }
+
+            .support-title {
+                font-size: clamp(34px, 8.5vw, 42px);
+                line-height: 1.12;
+                letter-spacing: -1px;
+            }
+
+            .support-desc {
+                font-size: 18px;
+                line-height: 1.45;
+            }
+
+            .eos-line {
+                margin-top: 42px;
+            }
+
+            .eos-line img {
+                min-width: 850px;
+            }
+
+            .progress-section {
+                padding-top: 18px;
+            }
+
+            .progress-bg {
+                display: none;
+            }
+
+            .progress-content {
+                padding: 42px 22px 46px;
+                border-radius: 36px;
+                background: #ead8ff;
+            }
+
+            .progress-title {
+                margin-bottom: 30px;
+                font-size: clamp(32px, 8.5vw, 40px);
+                letter-spacing: -0.9px;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .progress-item.productivity,
+            .progress-item.mood,
+            .progress-item.sleep,
+            .progress-item.goals {
+                max-width: 520px;
+            }
+
+            .reviews-section {
+                padding: 50px 0 70px;
+            }
+
+            .reviews-container {
+                padding: 0 22px;
+            }
+
+            .reviews-title {
+                margin-bottom: 28px;
+                font-size: clamp(32px, 8.5vw, 40px);
+                letter-spacing: -0.8px;
+            }
+
+            .reviews-cards {
+                flex-direction: column;
+                align-items: center;
+                gap: 18px;
+            }
+
+            .review-card-small,
+            .review-card-big {
+                width: 100%;
+                max-width: 390px;
+            }
+
+            .review-card-small {
+                min-height: 238px;
+                padding: 24px 22px;
+            }
+
+            .review-card-big {
+                min-height: 286px;
+                padding: 30px 24px;
+            }
+
+            .review-card-small .review-text,
+            .review-card-big .review-text {
+                max-width: none;
+            }
+
+            .review-card-big .review-text {
+                font-size: 18px;
+            }
+
+            .review-ivan-head {
+                max-width: 290px;
+            }
+
+            .questions-block {
+                border-radius: 36px;
+            }
+
+            .questions-content {
+                padding: 46px 22px 54px;
+            }
+
+            .questions-title {
+                font-size: clamp(34px, 9vw, 42px);
+                line-height: 1.08;
+                letter-spacing: -0.8px;
+            }
+
+            .questions-desc {
+                font-size: 18px;
+                line-height: 1.42;
+            }
+
+            .questions-input {
+                height: 58px;
+                padding: 0 22px;
+                font-size: 16px;
+            }
+
+            .questions-textarea {
+                height: 118px;
+                padding: 18px 22px;
+                font-size: 16px;
+            }
+
+            .questions-checkbox-label {
+                align-items: flex-start;
+                font-size: 15px;
+                line-height: 1.35;
+            }
+
+            .custom-checkbox {
+                margin-top: 1px;
+            }
+
+            .questions-submit {
+                width: min(100%, 260px);
+                height: 56px;
+                font-size: 18px;
+            }
+
+            .questions-sun-img {
+                max-width: 280px;
+            }
+
+            .footer-section {
+                margin-top: -150px;
+            }
+
+            .footer-block {
+                border-radius: 36px 36px 0 0;
+            }
+
+            .footer-content {
+                padding: 54px 22px 36px;
+            }
+
+            .footer-title {
+                font-size: clamp(32px, 8.5vw, 40px);
+                letter-spacing: -0.8px;
+            }
+
+            .footer-desc {
+                margin-bottom: 30px;
+                font-size: 17px;
+                line-height: 1.45;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-download {
+                grid-column: auto;
+            }
+
+            .footer-nav {
+                max-width: none;
+                grid-template-columns: 1fr 1fr;
+                gap: 14px 28px;
+            }
+
+            .footer-nav a,
+            .footer-link {
+                font-size: 18px;
+            }
+
+            .footer-social-title,
+            .footer-download-title {
+                margin-bottom: 14px;
+                font-size: 22px;
+            }
+
+            .footer-store-row {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .footer-store-img {
+                width: 140px;
+            }
+
+            .footer-copy {
+                margin-top: 34px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .nav-container {
+                padding: 0 16px;
+            }
+
+            .nav-menu {
+                gap: 14px;
+                font-size: 13px;
+            }
+
+            .hero-content {
+                padding: 132px 18px 82px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .section-container,
+            .support-container,
+            .reviews-container,
+            .questions-content,
+            .footer-content {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .challenge-card {
+                flex-direction: column;
+                gap: 18px;
+                padding: 24px 20px;
+            }
+
+            .challenge-icon-wrap {
+                width: 92px;
+                height: 92px;
+                min-width: 92px;
+            }
+
+            .challenge-icon {
+                width: 68px;
+                height: 68px;
+            }
+
+            .challenge-card-title {
+                font-size: 25px;
+            }
+
+            .challenge-card-meta,
+            .challenge-card-desc {
+                font-size: 16px;
+            }
+
+            .challenge-card-meta b,
+            .challenge-star {
+                font-size: 20px;
+            }
+
+            .review-head {
+                gap: 12px;
+            }
+
+            .review-avatar {
+                width: 62px;
+                height: 62px;
+            }
+
+            .review-stars {
+                width: 100px;
+            }
+
+            .review-card-small,
+            .review-card-big {
+                border-radius: 26px;
+            }
+
+            .questions-submit {
+                width: 100%;
+            }
+
+            .footer-nav {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .footer-email,
+            .footer-web {
+                font-size: 16px;
+            }
+
+            .footer-web {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .logo-circle {
+                width: 34px;
+                height: 34px;
+            }
+
+            .nav-download {
+                padding: 8px 14px;
+                font-size: 13px;
+            }
+
+            .hero-content {
+                padding-top: 126px;
+            }
+
+            .hero-title,
+            .title-vmeste {
+                font-size: clamp(33px, 10.5vw, 40px);
+            }
+
+            .eos-image {
+                width: min(78vw, 240px);
+            }
+
+            .section-title,
+            .support-title,
+            .progress-title,
+            .reviews-title,
+            .questions-title,
+            .footer-title {
+                letter-spacing: -0.6px;
+            }
+
+            .section-desc,
+            .support-desc,
+            .questions-desc,
+            .footer-desc {
+                font-size: 16px;
+            }
+
+            .progress-content {
+                border-radius: 28px;
+            }
+
+            .questions-block {
+                border-radius: 28px;
+            }
+
+            .footer-section {
+                margin-top: -110px;
+            }
+
+            .footer-block {
+                border-radius: 28px 28px 0 0;
+            }
+
+            .footer-store-img {
+                width: min(100%, 138px);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo-circle"></div>
+
+            <div class="nav-menu">
+                <a href="#challenges">Вызовы</a>
+                <a href="#community">Сообщество</a>
+                <a href="#statistics">Статистика</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#contacts">Контакты</a>
+            </div>
+
+            <button class="nav-download" type="button">
+                Скачать
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero-bg">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                ПРОСЫПАЙСЯ
+            </h1>
+
+            <h2 class="hero-title hero-title-offset">
+                С УДОВОЛЬСТВИЕМ
+            </h2>
+
+            <div class="vmeste-container">
+                <div class="title-vmeste">
+                    ВМЕСТЕ С
+                </div>
+
+                <img
+                    src="./images/eos-big.png"
+                    class="eos-image"
+                    alt="EOS"
+                >
+            </div>
+
+            <p class="hero-description">
+                Утренние привычки, трекер прогресса, персонализированные
+                напоминания и сообщество людей для идеального утра!
+            </p>
+
+            <button class="btn-white" type="button">
+                Скачать
+            </button>
+        </div>
+    </header>
+
+    <section class="section2" id="challenges">
+        <img
+            src="./images/section-2-bg.png"
+            class="section-bg-img"
+            alt=""
+        >
+
+        <div class="section-container">
+            <div class="left">
+                <div class="section-title">
+                    Привычки легче формировать вместе
+                </div>
+
+                <div class="section-desc">
+                    Выполняйте ежедневные вызовы, превращая полезные действия
+                    в игру, и наслаждайтесь трофеями собственной продуктивности.
+                </div>
+
+                <img
+                    src="./images/benefits.png"
+                    class="benefits-img"
+                    alt=""
+                >
+            </div>
+
+            <div class="cards">
+                <img
+                    src="./images/challenge-1.png"
+                    class="challenge-img challenge-small"
+                    alt=""
+                >
+
+                <div class="challenge-card">
+                    <div class="challenge-icon-wrap">
+                        <svg
+                            class="challenge-icon"
+                            viewBox="0 0 120 120"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <ellipse
+                                cx="57"
+                                cy="72"
+                                rx="40"
+                                ry="21"
+                                fill="#6F35D8"
+                            />
+
+                            <ellipse
+                                cx="57"
+                                cy="66"
+                                rx="33"
+                                ry="17"
+                                fill="#8F55F0"
+                            />
+
+                            <ellipse
+                                cx="57"
+                                cy="64"
+                                rx="17"
+                                ry="9"
+                                fill="#FFF7F0"
+                            />
+
+                            <path
+                                d="M84 52C95 39 104 36 109 41C114 46 108 56 93 63"
+                                stroke="#6F35D8"
+                                stroke-width="8"
+                                stroke-linecap="round"
+                            />
+
+                            <path
+                                d="M36 38C31 29 35 22 42 17"
+                                stroke="#A855F7"
+                                stroke-width="5"
+                                stroke-linecap="round"
+                            />
+
+                            <path
+                                d="M58 35C53 26 57 19 64 14"
+                                stroke="#A855F7"
+                                stroke-width="5"
+                                stroke-linecap="round"
+                            />
+
+                            <path
+                                d="M76 39C72 31 76 25 82 20"
+                                stroke="#A855F7"
+                                stroke-width="5"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                    </div>
+
+                    <div class="challenge-card-content">
+                        <div class="challenge-card-title">
+                            Утренний кулинар
+                        </div>
+
+                        <div class="challenge-card-meta">
+                            Награда:
+                            <b>400</b>
+                            <span class="challenge-star">★</span>
+                            <br>
+
+                            Длительность:
+                            <b>2 недели</b>
+                        </div>
+
+                        <div class="challenge-card-desc">
+                            Откажитесь от перекусов на бегу. Готовьте красивый,
+                            полноценный и сбалансированный завтрак.
+                        </div>
+                    </div>
+                </div>
+
+                <img
+                    src="./images/challenge-3.png"
+                    class="challenge-img challenge-small"
+                    alt=""
+                >
+            </div>
+        </div>
+    </section>
+
+    <section class="support-section" id="community">
+        <div class="support-container">
+            <div class="support-text">
+                <h2 class="support-title">
+                    Поддержка,<br>
+                    которая помогает<br>
+                    не сдаваться
+                </h2>
+
+                <p class="support-desc">
+                    Меняться проще, когда рядом есть друзья с такими же целями,
+                    именно поэтому у нас в приложении есть возможность общаться.
+                </p>
+            </div>
+
+            <div class="support-image-wrap">
+                <img
+                    src="./images/support-chat.png"
+                    class="support-chat-img"
+                    alt=""
+                >
+            </div>
+        </div>
+
+        <div class="eos-line">
+            <img
+                src="./images/eos-line.png"
+                alt=""
+            >
+        </div>
+    </section>
+
+    <section class="progress-section" id="statistics">
+        <div class="progress-block">
+            <img
+                src="./images/progress-bg.png"
+                class="progress-bg"
+                alt=""
+            >
+
+            <div class="progress-content">
+                <h2 class="progress-title">
+                    Наглядный прогресс в цифрах
+                </h2>
+
+                <div class="progress-grid">
+                    <div class="progress-item productivity">
+                        <img
+                            src="./images/progress-productivity.png"
+                            alt=""
+                        >
+                    </div>
+
+                    <div class="progress-item mood">
+                        <img
+                            src="./images/progress-mood.png"
+                            alt=""
+                        >
+                    </div>
+
+                    <div class="progress-item sleep">
+                        <img
+                            src="./images/progress-sleep.png"
+                            alt=""
+                        >
+                    </div>
+
+                    <div class="progress-item goals">
+                        <img
+                            src="./images/progress-goals.png"
+                            alt=""
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews-section" id="reviews">
+        <div class="reviews-container">
+            <h2 class="reviews-title">
+                Они уже изменили свое утро
+            </h2>
+
+            <div class="reviews-carousel">
+                <button class="review-arrow" type="button" aria-label="Предыдущий отзыв">
+                    <img
+                        src="./images/review-arrow-left.png"
+                        alt=""
+                    >
+                </button>
+
+                <div class="reviews-cards">
+                    <article class="review-card review-card-small">
+                        <img
+                            src="./images/review-card-small.png"
+                            class="review-card-bg"
+                            alt=""
+                        >
+
+                        <div class="review-content">
+                            <div class="review-head">
+                                <img
+                                    src="./images/review-avatar-valeria.png"
+                                    class="review-avatar"
+                                    alt="Валерия"
+                                >
+
+                                <div class="review-info">
+                                    <div class="review-name">
+                                        Валерия
+                                    </div>
+
+                                    <img
+                                        src="./images/review-stars.png"
+                                        class="review-stars"
+                                        alt="5 звезд"
+                                    >
+                                </div>
+                            </div>
+
+                            <p class="review-text">
+                                Не ожидала, что обычная система привычек может
+                                так мотивировать, но я стала дисциплинированной.
+                                Рейтинг друзей оказался мощным стимулом.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="review-card review-card-big">
+                        <img
+                            src="./images/review-card-big.png"
+                            class="review-card-bg"
+                            alt=""
+                        >
+
+                        <div class="review-content">
+                            <img
+                                src="./images/review-ivan-head.png"
+                                class="review-ivan-head"
+                                alt="Иван"
+                            >
+
+                            <p class="review-text">
+                                Раньше утро начиналось с откладывания будильника.
+                                Через две недели использования приложения я стал
+                                вставать абсолютно без стресса.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="review-card review-card-small">
+                        <img
+                            src="./images/review-card-small.png"
+                            class="review-card-bg"
+                            alt=""
+                        >
+
+                        <div class="review-content">
+                            <div class="review-head">
+                                <img
+                                    src="./images/review-avatar-victoria.png"
+                                    class="review-avatar"
+                                    alt="Виктория"
+                                >
+
+                                <div class="review-info">
+                                    <div class="review-name">
+                                        Виктория
+                                    </div>
+
+                                    <img
+                                        src="./images/review-stars.png"
+                                        class="review-stars"
+                                        alt="5 звезд"
+                                    >
+                                </div>
+                            </div>
+
+                            <p class="review-text">
+                                Статистика сна показала, почему я постоянно
+                                чувствовала усталость. Теперь мой режим стал
+                                стабильным, а настроение сильно улучшилось.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+                <button class="review-arrow" type="button" aria-label="Следующий отзыв">
+                    <img
+                        src="./images/review-arrow-right.png"
+                        alt=""
+                    >
+                </button>
+            </div>
+
+            <div class="reviews-slider">
+                <div class="reviews-slider-inner">
+                    <img
+                        src="./images/review-slider-line.png"
+                        class="review-slider-line"
+                        alt=""
+                    >
+
+                    <img
+                        src="./images/review-slider-thumb.png"
+                        class="review-slider-thumb"
+                        alt=""
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="questions-section" id="contacts">
+        <div class="questions-block">
+            <img
+                src="./images/questions-bg.png"
+                class="questions-bg"
+                alt=""
+            >
+
+            <div class="questions-content">
+                <div class="questions-left">
+                    <h2 class="questions-title">
+                        Есть вопросы?
+                    </h2>
+
+                    <p class="questions-desc">
+                        Заполните форму и мы поможем начать путь к счастливому утру!
+                    </p>
+
+                    <form class="questions-form" action="#" method="post">
+                        <input
+                            type="text"
+                            class="questions-input"
+                            placeholder="Имя"
+                            name="name"
+                        >
+
+                        <input
+                            type="email"
+                            class="questions-input"
+                            placeholder="E-mail"
+                            name="email"
+                        >
+
+                        <textarea
+                            class="questions-textarea"
+                            placeholder="Вопрос"
+                            name="message"
+                        ></textarea>
+
+                        <label class="questions-checkbox-label">
+                            <input
+                                type="checkbox"
+                                name="privacy"
+                            >
+
+                            <span class="custom-checkbox"></span>
+
+                            <span class="questions-checkbox-text">
+                                Я соглашаюсь с
+                                <span>обработкой персональных данных</span>
+                            </span>
+                        </label>
+
+                        <button class="questions-submit" type="submit">
+                            Отправить
+                        </button>
+                    </form>
+                </div>
+
+                <div class="questions-right">
+                    <img
+                        src="./images/questions-sun.png"
+                        class="questions-sun-img"
+                        alt=""
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="footer-block">
+            <img
+                src="./images/footer-bg.png"
+                class="footer-bg"
+                alt=""
+            >
+
+            <div class="footer-content">
+                <h2 class="footer-title">
+                    Готов начать лучшее утро?
+                </h2>
+
+                <p class="footer-desc">
+                    Присоединяйся к сообществу людей, которые перестали
+                    просыпаться уставшими и стали управлять своим днем.
+                </p>
+
+                <div class="footer-main">
+                    <div class="footer-nav">
+                        <a href="#challenges">Вызовы</a>
+                        <a href="#reviews">Отзывы</a>
+                        <a href="#community">Сообщество</a>
+                        <a href="#contacts">Контакты</a>
+                        <a href="#statistics">Статистика</a>
+                    </div>
+
+                    <div class="footer-social">
+                        <div class="footer-social-title">
+                            Мы в соц. сетях
+                        </div>
+
+                        <img
+                            src="./images/footer-socials.png"
+                            class="footer-socials-img"
+                            alt="Социальные сети"
+                        >
+
+                        <div class="footer-email">
+                            <span class="footer-email-icon"></span>
+                            <span>eos.morning@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <div class="footer-download">
+                        <div class="footer-download-title">
+                            Скачать приложение
+                        </div>
+
+                        <div class="footer-store-row">
+                            <img
+                                src="./images/footer-google-play.png"
+                                class="footer-store-img"
+                                alt="Google Play"
+                            >
+
+                            <img
+                                src="./images/footer-app-store.png"
+                                class="footer-store-img"
+                                alt="App Store"
+                            >
+                        </div>
+
+                        <div class="footer-web">
+                            <span>web-версия</span>
+                            <a href="#">//eos-morning.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-copy">
+                    © EOS 2026. Все права защищены
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EOS — Просыпайся с удовольствием</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+}
+
+/* HERO */
+
+.hero-bg{
+    background-image:url('./images/hero-bg.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+}
+
+.sparkle{
+    position:absolute;
+    animation:sparkle 4s infinite alternate ease-in-out;
+    filter:drop-shadow(0 0 15px rgba(255,255,255,.9));
+    pointer-events:none;
+}
+
+@keyframes sparkle{
+    from{
+        transform:scale(.85) rotate(-10deg);
+    }
+    to{
+        transform:scale(1.25) rotate(10deg);
+    }
+}
+
+.hero-content{
+    max-width:1100px;
+}
+
+.hero-title{
+    font-weight:600;
+    font-size:clamp(44px, 4.3vw, 68px);
+    line-height:1.05;
+    letter-spacing:-2px;
+    color:#F9F3FF;
+}
+
+.hero-title-offset{
+    padding-left:360px;
+}
+
+.vmeste-container{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    flex-wrap:wrap;
+    margin-top:2rem;
+}
+
+.title-vmeste{
+    font-weight:600;
+    font-size:clamp(44px, 4.3vw, 68px);
+    line-height:1.05;
+    letter-spacing:-2px;
+    color:#F9F3FF;
+}
+
+/* 👉 EOS = 120px */
+.eos-image{
+    width:clamp(240px, 28vw, 420px);
+    height:auto;
+    margin-left:120px;
+}
+
+.hero-description{
+    max-width:580px;
+    margin-top:2rem;
+    font-size:22px;
+    line-height:1.6;
+    color:#F3E8FF;
+}
+
+.download-btn{
+    margin-top:2.5rem;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .hero-title{
+        font-size:42px;
+    }
+
+    .hero-title-offset{
+        padding-left:0;
+    }
+
+    .vmeste-container{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .eos-image{
+        width:220px;
+        margin-left:0;
+    }
+
+    .hero-description{
+        max-width:100%;
+        font-size:18px;
+    }
+}
+
+@media(max-width:768px){
+    .hero-bg{
+        padding-top:40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="bg-[#a855f7] text-white sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <span class="text-[#a855f7] text-3xl font-black">E</span>
+            </div>
+        </div>
+
+        <div class="hidden lg:flex items-center gap-9 text-base font-medium">
+            <a href="#">Вызовы</a>
+            <a href="#">Сообщество</a>
+            <a href="#">Статистика</a>
+            <a href="#">Отзывы</a>
+            <a href="#">Контакты</a>
+        </div>
+
+        <button class="bg-white text-[#a855f7] px-8 py-3 rounded-full font-semibold">
+            Скачать
+        </button>
+
+    </div>
+</nav>
+
+<header class="hero-bg text-white flex items-start relative pt-10 md:pt-16">
+
+    <div class="max-w-7xl mx-auto px-6 pb-24 w-full">
+
+        <div class="hero-content">
+
+            <h1 class="hero-title">ПРОСЫПАЙСЯ</h1>
+
+            <div class="h-10"></div>
+
+            <h2 class="hero-title hero-title-offset">С УДОВОЛЬСТВИЕМ</h2>
+
+            <div class="vmeste-container">
+
+                <div class="title-vmeste">ВМЕСТЕ С</div>
+
+                <img src="./images/eos-big.png" class="eos-image drop-shadow-2xl" alt="EOS">
+
+            </div>
+
+            <p class="hero-description">
+                Утренние привычки, трекер прогресса,
+                персонализированные напоминания
+                и сообщество людей для идеального утра!
+            </p>
+
+            <button class="px-10 py-4 bg-white text-[#a855f7] rounded-full font-semibold mt-10">
+                Скачать
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+<script>
+function scrollToDownload(){
+    alert("Кнопка работает");
+}
+</script>
+
+</body>
+</html>

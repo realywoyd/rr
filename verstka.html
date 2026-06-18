@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EOS — Просыпайся с удовольствием</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #5b21b6 0%, #7e22ce 35%, #c026d3 65%, #db2777 100%);
+            background-image: url('./images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sparkle {
+            position: absolute;
+            animation: sparkle 4s infinite alternate ease-in-out;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+        }
+        
+        @keyframes sparkle {
+            0%   { transform: scale(0.8) rotate(-10deg); }
+            100% { transform: scale(1.4) rotate(10deg); }
+        }
+
+        .title-prosypaysya {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 80px;
+            line-height: 97px;
+            color: #F9F3FF;
+            letter-spacing: -2px;
+            margin-top: -130px;
+            margin-left: -40px;        /* сдвинули только "ПРОСЫПАЙСЯ" левее */
+        }
+
+        .title-pleasure {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 80px;
+            line-height: 97px;
+            color: #F9F3FF;
+            letter-spacing: -2px;
+            padding-left: 26rem;
+            margin-top: 1.2rem;
+        }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- Шапка -->
+    <nav class="bg-[#a855f7] text-white sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <span class="text-[#a855f7] text-3xl font-black">E</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-9 text-base font-medium">
+                <a href="#" class="hover:underline">Вызовы</a>
+                <a href="#" class="hover:underline">Сообщество</a>
+                <a href="#" class="hover:underline">Статистика</a>
+                <a href="#" class="hover:underline">Отзывы</a>
+                <a href="#" class="hover:underline">Контакты</a>
+            </div>
+            
+            <button onclick="scrollToDownload()" 
+                    class="bg-white text-[#a855f7] px-8 py-3 rounded-full font-semibold hover:scale-105 transition-all">
+                Скачать
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-bg text-white flex items-center relative">
+        <div class="max-w-7xl mx-auto px-6 pt-6 pb-28 relative z-10">
+            <div>
+                <h1 class="title-prosypaysya">ПРОСЫПАЙСЯ</h1>
+                <h2 class="title-pleasure">С УДОВОЛЬСТВИЕМ</h2>
+                
+                <div class="flex items-baseline gap-6 mt-12 mb-8">
+                    <span class="text-[2.2rem] font-medium tracking-tight">ВМЕСТЕ С</span>
+                    <img src="./images/eos-big.png" 
+                         alt="EOS" 
+                         class="h-[165px] md:h-[205px] -mt-6 drop-shadow-2xl">
+                </div>
+                
+                <p class="text-[1.35rem] leading-relaxed text-purple-100 max-w-md">
+                    Утренние привычки, трекер прогресса,<br>
+                    персонализированные напоминания<br>
+                    и сообщество людей для идеального утра!
+                </p>
+                
+                <button onclick="scrollToDownload()" 
+                        class="mt-12 px-12 py-4 bg-white text-[#a855f7] text-lg font-semibold rounded-full hover:scale-105 transition-all shadow-xl">
+                    Скачать
+                </button>
+            </div>
+        </div>
+
+        <!-- Sparkles -->
+        <img src="./images/sparkle1.png" class="sparkle w-20 top-[22%] left-[10%]" alt="">
+        <img src="./images/sparkle2.png" class="sparkle w-14 top-[37%] right-[17%]" alt="">
+        <img src="./images/sparkle1.png" class="sparkle w-12 bottom-[38%] left-[23%]" alt="">
+        <img src="./images/sparkle2.png" class="sparkle w-16 bottom-[27%] right-[22%]" alt="">
+    </header>
+
+    <script>
+        function scrollToDownload() {
+            alert("Кнопка работает");
+        }
+    </script>
+</body>
+</html>
